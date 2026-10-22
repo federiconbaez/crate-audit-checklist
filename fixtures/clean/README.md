@@ -1,0 +1,3 @@
+# fixture-clean
+
+Test fixture.

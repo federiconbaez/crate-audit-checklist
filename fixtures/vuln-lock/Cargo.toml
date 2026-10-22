@@ -1,0 +1,9 @@
+[package]
+name = "fixture-vuln-lock"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+# The lockfile pins smallvec 0.6.9 (RUSTSEC-2019-0009). Only the audit check is
+# run on this fixture; nothing is built or downloaded.

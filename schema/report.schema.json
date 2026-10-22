@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/federiconbaez/crate-audit-checklist/schema/report.schema.json",
+  "title": "crate-audit-checklist report",
+  "type": "object",
+  "required": ["schema_version", "tool_version", "crate_name", "crate_version", "score", "passed", "fail_under", "checks"],
+  "properties": {
+    "schema_version": { "type": "integer", "enum": [1] },
+    "tool_version": { "type": "string" },
+    "crate_name": { "type": ["string", "null"] },
+    "crate_version": { "type": ["string", "null"] },
+    "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "passed": { "type": "boolean" },
+    "fail_under": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "checks": { "type": "array", "items": { "$ref": "#/$defs/check" } }
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "required": ["id", "status", "weight", "critical", "detail", "findings", "duration_ms"],
+      "properties": {
+        "id": { "type": "string", "enum": ["metadata", "fmt", "clippy", "test", "unsafe", "audit", "miri"] },
+        "status": { "type": "string", "enum": ["pass", "warn", "fail", "skip"] },
+        "weight": { "type": "integer", "minimum": 0 },
+        "critical": { "type": "boolean" },
+        "detail": { "type": "string" },
+        "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+        "duration_ms": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "required": ["message"],
+      "properties": {
+        "message": { "type": "string" },
+        "file": { "type": "string" },
+        "line": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

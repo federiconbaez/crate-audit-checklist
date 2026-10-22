@@ -1,0 +1,10 @@
+[package]
+name = "fixture-clean"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+license = "Apache-2.0"
+description = "Fixture: a crate that passes every check"
+repository = "https://example.invalid/fixture-clean"
+
+[workspace]

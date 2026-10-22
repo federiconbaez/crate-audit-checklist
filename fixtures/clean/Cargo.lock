@@ -1,0 +1,6 @@
+# Lockfile for the clean fixture.
+version = 3
+
+[[package]]
+name = "fixture-clean"
+version = "0.1.0"
