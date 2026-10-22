@@ -1,0 +1,15 @@
+[package]
+name = "crate-audit-checklist"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "Apache-2.0"
+description = "Runs a reproducible review checklist on a Rust crate (tests, clippy, fmt, cargo-audit, unsafe hygiene, metadata, optional Miri) and emits a scored JSON report"
+repository = "https://github.com/federiconbaez/crate-audit-checklist"
+keywords = ["audit", "review", "clippy", "unsafe", "cli"]
+categories = ["development-tools", "command-line-utilities"]
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
