@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets -- -D warnings
+
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - name: Nightly with Miri (for the miri check fixtures)
+        run: rustup toolchain install nightly --profile minimal --component miri && cargo +nightly miri setup
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-audit
+      - name: Tests (audit and miri fixtures must run, not skip)
+        env:
+          CAC_REQUIRE_AUDIT: "1"
+          CAC_REQUIRE_MIRI: "1"
+        run: cargo test
+      - name: "Dogfood: audit this crate with its own checklist"
+        run: cargo run -q --release -- . --fail-under 90 --out report.json
+      - name: Seeded fixture must fail
+        run: |
+          cp -r fixtures/seeded "$RUNNER_TEMP/seeded"
+          if cargo run -q --release -- "$RUNNER_TEMP/seeded"; then
+            echo "seeded fixture unexpectedly passed"; exit 1
+          fi
