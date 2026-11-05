@@ -110,6 +110,13 @@ README existed and 100/100 with it (fresh clone), ~9.4 s end to end, dominated b
 **Limits:** the `unsafe` scan is lexical (no macro expansion); one crate at a time, not whole
 workspaces; the weights are an explicit opinion.
 
+## Contributing, bugs and security / Contribuir, errores y seguridad
+
+- Bugs and feature requests / errores y pedidos: <https://github.com/federiconbaez/crate-audit-checklist/issues>
+- How to contribute / cómo contribuir: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Vulnerabilities, privately / vulnerabilidades, por canal privado: [SECURITY.md](SECURITY.md)
+- Changes per version / cambios por versión: [CHANGELOG.md](CHANGELOG.md)
+
 ## License
 
 Apache-2.0.
