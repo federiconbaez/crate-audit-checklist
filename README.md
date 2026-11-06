@@ -114,7 +114,7 @@ workspaces; the weights are an explicit opinion.
 
 - Bugs and feature requests / errores y pedidos: <https://github.com/federiconbaez/crate-audit-checklist/issues>
 - How to contribute / cómo contribuir: [CONTRIBUTING.md](CONTRIBUTING.md)
-- Vulnerabilities, privately / vulnerabilidades, por canal privado: [SECURITY.md](SECURITY.md)
+- Reporting vulnerabilities, no private channel yet / reportar vulnerabilidades, todavía sin canal privado: [SECURITY.md](SECURITY.md)
 - Changes per version / cambios por versión: [CHANGELOG.md](CHANGELOG.md)
 
 ## License

@@ -6,12 +6,11 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
-### Added
-- `SECURITY.md`, `CONTRIBUTING.md` and this changelog.
+Nothing yet.
 
-## [0.1.0] - not yet tagged
+## [0.1.0] - 2026-11-06
 
-First version, as declared in `Cargo.toml`.
+First tagged release. Version as declared in `Cargo.toml`.
 
 ### Added
 - CLI `crate-audit-checklist [PATH] [--json] [--out FILE] [--checks LIST] [--miri] [--fail-under N]`
@@ -23,6 +22,10 @@ First version, as declared in `Cargo.toml`.
 - 17 tests (9 unit, 8 integration on fixture crates). CI turns missing cargo-audit or
   Miri into failures, dogfoods the tool on this repository with `--fail-under 90` and
   requires the seeded fixture to fail.
+
+### Project infrastructure (added before tagging)
+*Added:*
+- `SECURITY.md`, `CONTRIBUTING.md` and this changelog.
 
 ### Security
 - No known vulnerabilities fixed in this version.
