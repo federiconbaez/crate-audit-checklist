@@ -1,7 +1,7 @@
 # Dogfooding config: this repo is checked with its own tool in CI.
 
 [identity]
-name = "Federico Nicolas Báez Rizzo"
+name = "Federico Nicolas Baez Rizzo"
 email = "43962066+federiconbaez@users.noreply.github.com"
 
 [scrub]
